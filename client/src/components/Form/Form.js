@@ -1,22 +1,24 @@
 import {useState} from 'react';
 import React from 'react';
 
-export default ({handleSubmit}) = e => {
+const HandleSubmit = ({ handleSubmit }) => {
     const [toDo, updateToDo] = useState("")
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         updateToDo(e.target.value);
     };
 
-    const handleForm = e => {
-        e.preventDefault;
+    const handleForm = (e) => {
+        e.preventDefault();
         handleSubmit(toDo);
         updateToDo("")
     };
     return (
         <form onSubmit={handleForm}>
-            <label>New Item</label>
-            <input type="text" value={todo} onChange={handleChange} id="toDo" />
+            <label htmlFor="toDo">New Item</label>
+            <input type="text" value={toDo} onChange={handleChange} id="toDo" />
         </form>
     )
-}
+};
+
+export default HandleSubmit;
